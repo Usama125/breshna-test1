@@ -8,11 +8,18 @@ class Test {
 	}
 
 	getProductsWithMimimumFields() {
-		this.productNamePrice = products.map(product => { return { productName: product.productName, productPrice: product.productPrice } });
+		this.productNamePrice = products.map(product => {
+			return {
+				productName: product.productName,
+				productPrice: product.productPrice
+			}
+		});
 	}
 
 	leastPriceWithThisName(name) {
-		return this.productNamePrice.filter(product => product.productName === name).reduce((a, b) => a.productPrice < b.productPrice ? a : b)
+		return this.productNamePrice
+			.filter(product => product.productName === name)
+			.reduce((a, b) => a.productPrice < b.productPrice ? a : b)
 	}
 
 	extractTotalQuantityOfCartItems() {
